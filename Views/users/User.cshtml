@@ -1,0 +1,81 @@
+﻿@model IEnumerable<InterfazdeAdministración_SistemadeLibrería.Models.User>
+
+@{
+    ViewData["Title"] = "Gestión de Usuarios";
+}
+
+<div class="container-fluid px-3 py-4">
+
+    <div class="page-header">
+        <h1 class="page-title">Gestión de <span>Usuarios</span></h1>
+        <a asp-action="Create" asp-controller="User" class="btn-create">&#43; Agregar usuario</a>
+    </div>
+
+    <div class="card-library">
+        <div class="card-body">
+
+            @if (TempData["message"] != null)
+            {
+                <div class="alert-lib alert-success-lib">&#10003; @TempData["message"]</div>
+            }
+
+            @if (Model == null || !Model.Any())
+            {
+                <div class="empty-state">
+                    <svg width="56" height="56" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                              d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    <p>No hay usuarios registrados aún.</p>
+                </div>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <table class="table-library">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Email</th>
+                                <th>Teléfono</th>
+                                <th>Registro</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var user in Model)
+                            {
+                                <tr>
+                                    <td><strong>#@user.Id</strong></td>
+                                    <td>@user.Username</td>
+                                    <td>@user.lastname</td>
+                                    <td>@user.Email</td>
+                                    <td>@user.number</td>
+                                    <td>@user.dateRegistered.ToString("dd/MM/yyyy")</td>
+                                    <td>
+                                        <div class="action-group">
+                                            <a asp-action="Show" asp-controller="User" asp-route-id="@user.Id"
+                                               class="btn-action btn-details">&#128065; Detalles</a>
+                                            <a asp-action="Edit" asp-controller="User" asp-route-id="@user.Id"
+                                               class="btn-action btn-edit">&#9998; Editar</a>
+                                            <form asp-action="Destroy" asp-controller="User" asp-route-id="@user.Id" method="post" style="display:inline">
+                                                @Html.AntiForgeryToken()
+                                                <button type="submit" class="btn-action btn-delete"
+                                                        onclick="return confirm('¿Eliminar al usuario \'@user.Username\'?')">
+                                                    &#128465; Eliminar
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>

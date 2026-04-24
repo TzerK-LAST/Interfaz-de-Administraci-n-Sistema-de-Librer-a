@@ -1,0 +1,98 @@
+﻿@model IEnumerable<InterfazdeAdministración_SistemadeLibrería.Models.Loan>
+
+@{
+    ViewData["Title"] = "Gestión de Préstamos";
+}
+
+<div class="container-fluid px-3 py-4">
+
+    <div class="page-header">
+        <h1 class="page-title">Gestión de <span>Préstamos</span></h1>
+        <a asp-action="Create" asp-controller="Loan" class="btn-create">&#43; Nuevo préstamo</a>
+    </div>
+
+    <div class="card-library">
+        <div class="card-body">
+
+            @if (TempData["message"] != null)
+            {
+                <div class="alert-lib alert-success-lib">&#10003; @TempData["message"]</div>
+            }
+
+            @if (Model == null || !Model.Any())
+            {
+                <div class="empty-state">
+                    <svg width="56" height="56" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                              d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                    </svg>
+                    <p>No hay préstamos registrados aún.</p>
+                </div>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <table class="table-library">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Usuario</th>
+                                <th>Libro</th>
+                                <th>Inicio</th>
+                                <th>Devolución</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var loan in Model)
+                            {
+                                <tr>
+                                    <td><strong>#@loan.Id</strong></td>
+                                    <td>@(loan.UserId != null ? loan.User.Username + " " + loan.User.lastname : "—")</td>
+                                    <td>@(loan.User != null ? loan.User.Username + " " + loan.User.lastname : "—")</td>
+                                    <td>@loan.StartDate.ToString("dd/MM/yyyy")</td>
+                                    <td>@(loan.EndDate.HasValue ? loan.EndDate.Value.ToString("dd/MM/yyyy") : "—")</td>
+                                    <td>
+                                        @if (loan.estado == "Activo")
+                                        {
+                                            <span class="badge-stock-low">@loan.estado</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge-stock-ok">@loan.estado</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        <div class="action-group">
+                                            <a asp-action="Show" asp-controller="Loan" asp-route-id="@loan.Id"
+                                               class="btn-action btn-details">&#128065; Detalles</a>
+                                            @if (loan.estado == "Activo")
+                                            {
+                                                <form asp-action="Return" asp-controller="Loan" asp-route-id="@loan.Id" method="post" style="display:inline">
+                                                    @Html.AntiForgeryToken()
+                                                    <button type="submit" class="btn-action btn-edit"
+                                                            onclick="return confirm('¿Marcar este préstamo como devuelto?')">
+                                                        &#10003; Devuelto
+                                                    </button>
+                                                </form>
+                                            }
+                                            <form asp-action="Destroy" asp-controller="Loan" asp-route-id="@loan.Id" method="post" style="display:inline">
+                                                @Html.AntiForgeryToken()
+                                                <button type="submit" class="btn-action btn-delete"
+                                                        onclick="return confirm('¿Eliminar este préstamo?')">
+                                                    &#128465; Eliminar
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+﻿@model InterfazdeAdministración_SistemadeLibrería.Models.Loan
+
+@{
+    ViewData["Title"] = "Nuevo Préstamo";
+    var users = ViewBag.Users as IEnumerable<InterfazdeAdministración_SistemadeLibrería.Models.User>;
+    var books = ViewBag.Books as IEnumerable<InterfazdeAdministración_SistemadeLibrería.Models.book>;
+}
+
+<div class="page-header">
+    <h1 class="page-title">Nuevo <span>Préstamo</span></h1>
+    <a asp-action="Index" asp-controller="Loan" class="btn-secondary-lib">← Volver</a>
+</div>
+
+<div class="form-card">
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert-lib alert-danger-lib">Revisa los campos con error antes de continuar.</div>
+    }
+
+    <form asp-action="Store" asp-controller="Loan" method="post">
+        @Html.AntiForgeryToken()
+
+        <div class="form-group-lib">
+            <label class="form-label-lib" asp-for="UserId">Usuario</label>
+            <select class="form-control-lib" asp-for="UserId">
+                <option value="">— Selecciona un usuario —</option>
+                @if (users != null)
+                {
+                    @foreach (var u in users)
+                    {
+                        <option value="@u.Id">@u.Username @u.lastname</option>
+                    }
+                }
+            </select>
+            <span asp-validation-for="UserId" class="text-danger" style="font-size:0.8rem"></span>
+        </div>
+
+        <div class="form-group-lib">
+            <label class="form-label-lib" asp-for="BookId">Libro</label>
+            <select class="form-control-lib" asp-for="BookId">
+                <option value="">— Selecciona un libro —</option>
+                @if (books != null)
+                {
+                    @foreach (var b in books)
+                    {
+                   
+                        @if (b.stock <= 0)
+                        {
+                            <option value="@b.Id" disabled>@b.Title — Sin stock</option>
+                        }
+                        else
+                        {
+                            <option value="@b.Id">@b.Title — Stock: @b.stock</option>
+                        }
+                    }
+                }
+            </select>
+            <span asp-validation-for="BookId" class="text-danger" style="font-size:0.8rem"></span>
+        </div>
+
+        <div class="d-flex gap-3 mt-4">
+            <button type="submit" class="btn-primary-lib">Registrar préstamo</button>
+            <a asp-action="Index" asp-controller="Loan" class="btn-secondary-lib">Cancelar</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

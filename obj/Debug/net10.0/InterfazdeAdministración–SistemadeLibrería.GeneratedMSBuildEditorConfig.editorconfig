@@ -1,0 +1,103 @@
+is_global = true
+build_property.TargetFramework = net10.0
+build_property.TargetFramework = net10.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v10.0
+build_property.RootNamespace = InterfazdeAdministración_SistemadeLibrería
+build_property.RootNamespace = InterfazdeAdministración_SistemadeLibrería
+build_property.ProjectDir = C:\Users\TZERK\c#semana1\InterfazdeAdministración–SistemadeLibrería\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\TZERK\c#semana1\InterfazdeAdministración–SistemadeLibrería
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 10.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/TZERK/c\#semana1/InterfazdeAdministración–SistemadeLibrería/Views/book/create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYm9va1xjcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/TZERK/c\#semana1/InterfazdeAdministración–SistemadeLibrería/Views/book/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYm9va1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/TZERK/c\#semana1/InterfazdeAdministración–SistemadeLibrería/Views/book/libros.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYm9va1xsaWJyb3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/TZERK/c\#semana1/InterfazdeAdministración–SistemadeLibrería/Views/book/Show.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYm9va1xTaG93LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/TZERK/c\#semana1/InterfazdeAdministración–SistemadeLibrería/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/TZERK/c\#semana1/InterfazdeAdministración–SistemadeLibrería/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/TZERK/c\#semana1/InterfazdeAdministración–SistemadeLibrería/Views/prestamo/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NccHJlc3RhbW9cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/TZERK/c\#semana1/InterfazdeAdministración–SistemadeLibrería/Views/prestamo/Loan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NccHJlc3RhbW9cTG9hbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/TZERK/c\#semana1/InterfazdeAdministración–SistemadeLibrería/Views/prestamo/Show.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NccHJlc3RhbW9cU2hvdy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/TZERK/c\#semana1/InterfazdeAdministración–SistemadeLibrería/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/TZERK/c\#semana1/InterfazdeAdministración–SistemadeLibrería/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/TZERK/c\#semana1/InterfazdeAdministración–SistemadeLibrería/Views/users/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdXNlcnNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/TZERK/c\#semana1/InterfazdeAdministración–SistemadeLibrería/Views/users/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdXNlcnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/TZERK/c\#semana1/InterfazdeAdministración–SistemadeLibrería/Views/users/Show.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdXNlcnNcU2hvdy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/TZERK/c\#semana1/InterfazdeAdministración–SistemadeLibrería/Views/users/User.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdXNlcnNcVXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/TZERK/c\#semana1/InterfazdeAdministración–SistemadeLibrería/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/TZERK/c\#semana1/InterfazdeAdministración–SistemadeLibrería/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/TZERK/c\#semana1/InterfazdeAdministración–SistemadeLibrería/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-5not8gjjxg

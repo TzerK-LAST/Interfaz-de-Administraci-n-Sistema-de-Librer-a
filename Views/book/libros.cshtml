@@ -1,0 +1,96 @@
+@model IEnumerable<InterfazdeAdministración_SistemadeLibrería.Models.book>
+
+@{
+    ViewData["Title"] = "Gestión de Libros";
+}
+
+
+<div class="container-fluid px-3 py-4">
+
+    <div class="page-header">
+        <h1 class="page-title">Catálogo de <span>Libros</span></h1>
+        <a asp-action="Create" asp-controller="Book" class="btn-create">
+            &#43; Agregar libro
+        </a>
+    </div>
+
+    <div class="card-library">
+        <div class="card-body">
+
+            @if (TempData["message"] != null)
+            {
+                <div class="alert-success-custom">
+                    &#10003; @TempData["message"]
+                </div>
+            }
+
+            @if (Model == null || !Model.Any())
+            {
+                <div class="empty-state">
+                    <svg width="56" height="56" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                              d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                    </svg>
+                    <p>No hay libros registrados aún.</p>
+                </div>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <table class="table-library">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Título</th>
+                                <th>Autor</th>
+                                <th>Género</th>
+                                <th>Año</th>
+                                <th>Cantidad</th>
+                                <th>Stock</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var book in Model)
+                            {
+                                <tr>
+                                    <td><strong>#@book.Id</strong></td>
+                                    <td>@book.Title</td>
+                                    <td>@book.Author</td>
+                                    <td><span class="badge-genre">@book.genero</span></td>
+                                    <td>@(book.publicationYear.HasValue ? book.publicationYear.ToString() : "—")</td>
+                                    <td>@book.quantity</td>
+                                    <td>
+                                        @if (book.stock > 5)
+                                        {
+                                            <span class="badge-stock-ok">@book.stock</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge-stock-low">@book.stock</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        <form asp-action="Destroy" asp-controller="Book" asp-route-id="@book.Id" method="post">
+                                            <div class="action-group">
+                                                <a asp-action="Show" asp-controller="Book" asp-route-id="@book.Id"
+                                                   class="btn-action btn-details">&#128065; Detalles</a>
+                                                <a asp-action="Edit" asp-controller="Book" asp-route-id="@book.Id"
+                                                   class="btn-action btn-edit">&#9998; Editar</a>
+                                                <button type="submit" class="btn-action btn-delete"
+                                                        onclick="return confirm('¿Eliminar el libro \'@book.Title\'?')">
+                                                    &#128465; Eliminar
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>

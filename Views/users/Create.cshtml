@@ -1,0 +1,60 @@
+﻿@model InterfazdeAdministración_SistemadeLibrería.Models.User
+
+@{
+    ViewData["Title"] = "Agregar Usuario";
+}
+
+<div class="page-header">
+    <h1 class="page-title">Agregar <span>Usuario</span></h1>
+    <a asp-action="Users" asp-controller="User" class="btn-secondary-lib">← Volver</a>
+</div>
+
+<div class="form-card">
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert-lib alert-danger-lib">Revisa los campos con error antes de continuar.</div>
+    }
+
+    <form asp-action="Store" asp-controller="User" method="post">
+        @Html.AntiForgeryToken()
+
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="form-group-lib">
+                    <label class="form-label-lib" asp-for="Username">Nombre</label>
+                    <input class="form-control-lib" asp-for="Username" placeholder="Ej: Juan" />
+                    <span asp-validation-for="Username" class="text-danger" style="font-size:0.8rem"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group-lib">
+                    <label class="form-label-lib" asp-for="lastname">Apellido</label>
+                    <input class="form-control-lib" asp-for="lastname" placeholder="Ej: Pérez" />
+                    <span asp-validation-for="lastname" class="text-danger" style="font-size:0.8rem"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group-lib">
+            <label class="form-label-lib" asp-for="Email">Correo electrónico</label>
+            <input class="form-control-lib" asp-for="Email" type="email" placeholder="Ej: juan@correo.com" />
+            <span asp-validation-for="Email" class="text-danger" style="font-size:0.8rem"></span>
+        </div>
+
+        <div class="form-group-lib">
+            <label class="form-label-lib" asp-for="number">Teléfono</label>
+            <input class="form-control-lib" asp-for="number" type="number" placeholder="Ej: 3001234567" />
+            <span asp-validation-for="number" class="text-danger" style="font-size:0.8rem"></span>
+        </div>
+
+        <div class="d-flex gap-3 mt-4">
+            <button type="submit" class="btn-primary-lib">Guardar usuario</button>
+            <a asp-action="Users" asp-controller="User" class="btn-secondary-lib">Cancelar</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

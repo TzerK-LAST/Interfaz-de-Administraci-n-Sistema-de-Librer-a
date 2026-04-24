@@ -1,0 +1,45 @@
+﻿@model InterfazdeAdministración_SistemadeLibrería.Models.book
+
+@{
+    ViewData["Title"] = "Detalle del Libro";
+}
+
+<div class="page-header">
+    <h1 class="page-title">Detalle del <span>Libro</span></h1>
+    <a asp-action="Libros" asp-controller="Book" class="btn-secondary-lib">← Volver</a>
+</div>
+
+<div class="form-card">
+    <div class="detail-row"><span class="detail-label">ID</span><span class="detail-value">#@Model.Id</span></div>
+    <div class="detail-row"><span class="detail-label">Título</span><span class="detail-value">@Model.Title</span></div>
+    <div class="detail-row"><span class="detail-label">Descripción</span><span class="detail-value">@Model.Description</span></div>
+    <div class="detail-row"><span class="detail-label">Autor</span><span class="detail-value">@Model.Author</span></div>
+    <div class="detail-row"><span class="detail-label">Género</span><span class="detail-value"><span class="badge-genre">@Model.genero</span></span></div>
+    <div class="detail-row"><span class="detail-label">Año</span><span class="detail-value">@(Model.publicationYear.HasValue ? Model.publicationYear.ToString() : "—")</span></div>
+    <div class="detail-row"><span class="detail-label">Cantidad</span><span class="detail-value">@Model.quantity</span></div>
+    <div class="detail-row">
+        <span class="detail-label">Stock</span>
+        <span class="detail-value">
+            @if (Model.stock > 5)
+            {
+                <span class="badge-stock-ok">@Model.stock disponibles</span>
+            }
+            else
+            {
+                <span class="badge-stock-low">@Model.stock disponibles</span>
+            }
+        </span>
+    </div>
+    <div class="d-flex gap-3 mt-4">
+        <a asp-action="Edit" asp-controller="Book" asp-route-id="@Model.Id" class="btn-primary-lib">&#9998; Editar</a>
+        <a asp-action="Libros" asp-controller="Book" class="btn-secondary-lib">Cancelar</a>
+    </div>
+</div>
+
+@section Styles {
+<style>
+    .detail-row { display:flex; gap:1rem; padding:.75rem 0; border-bottom:1px solid var(--border); align-items:center; }
+    .detail-label { font-size:.8rem; font-weight:600; color:var(--text-muted); width:140px; flex-shrink:0; text-transform:uppercase; letter-spacing:.5px; }
+    .detail-value { font-size:.95rem; color:var(--text); }
+</style>
+}
